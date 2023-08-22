@@ -8,9 +8,9 @@ public class Main {
 
     private static void displayMenu() {
         System.out.println("GradeBook Menu:");
+        System.out.println("0. Exit");
         System.out.println("1. Add a Grade");
         System.out.println("2. Get Size");
-        System.out.println("7. Exit");
         System.out.print("Enter your choice: ");
     }
 
@@ -21,6 +21,9 @@ public class Main {
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
             switch (choice) {
+                case 0:
+                    continueRunning = false;
+                    break;
                 case 1:
                     addGrade();
                     break;
@@ -43,6 +46,7 @@ public class Main {
         System.out.print("Enter score: ");
         String scoreString= scanner.nextLine();
         Double score = Double.parseDouble(scoreString);
+
         Grade grade = new Grade(name, assignment, score);
         gradeBook.addGrade(grade);
         System.out.println("Grade added successfully!");
